@@ -5,7 +5,7 @@
 
 .main{
     width: auto;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)100%,rgba(0,0,0,0.5)50%), url(banner.png);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)100%,rgba(0,0,0,0.5)50%), url(assets/img/banner.png);
     background-position: center;
     background-size: cover;
     height: 100vh;

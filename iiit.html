@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialized Engineering & Tech Paths</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1555685812-e34ed3f8e4c5');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #4e54c8;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #3b41a1, #6e74c8);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .scrollable {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1>Explore Engineering & Tech Career Paths</h1>
+        <p>Select a path to explore opportunities and learn more about it.</p>
+        <div class="scrollable">
+            <div class="buttons">
+           
+                    <script>
+                const programFiles = [
+                    "i.i.i.t_in_Artificial_Intelligence.html",
+                    "i.i.i.t_in_Computer_Science_and_Applied_Mathematics_CSAM.html",
+                    "i.i.i.t_in_Computer_Science_and_Social_Sciences_CSSS.html",
+                    "i.i.i.t_in_Humanities.html",
+                    "i.i.i.t_in_Master_of_Science_M.S..html",
+                    "i.i.i.t_in_Physics.html",
+                    "i.i.i.t_in_Undergraduate_Programs_Through_JEE_Main_and_JoSAA_CSAB.html",
+                    "i.i.i.t_in_B.Tech_in_CSE_+_M.Tech_in_Advanced_Specializations.html",
+                    "i.i.i.t_in_B.Tech_in_ECE_+_M.Tech_in_Communication_Systems_or_VLSI_Design.html",
+                    "i.i.i.t_in_B.Tech_in_Mechanical_Engineering_+_M.Tech_in_AI_and_Robotics.html",
+                    "i.i.i.t_in_Computer_Science_and_Biosciences_CSB.html",
+                    "i.i.i.t_in_Computer_Science_and_Design_CSD.html",
+                    "i.i.i.t_in_Data_Science.html",
+                    "i.i.i.t_in_Doctoral_Programs_Entrance_tests_and_interviews_conducted_by_respective_IIITs.html",
+                    "i.i.i.t_in_Information_Technology_IT.html",
+                    "i.i.i.t_in_Integrated_Product_Design.html",
+                    "i.i.i.t_in_Mathematics.html",
+                    "i.i.i.t_in_Research_in_Engineering_and_Science_Disciplines.html",
+                    "i.i.i.t_in_VLSI_Design.html",
+                    "i.i.i.t_in_Communication_Systems_Design.html",
+                    "i.i.i.t_in_Computer_Science_and_Engineering.html",
+                    "i.i.i.t_in_Computer_Science_and_Engineering_CSE.html",
+                    "i.i.i.t_in_Electronics_and_Communication_Engineering.html",
+                    "i.i.i.t_in_Electronics_and_Communication_Engineering_ECE.html",
+                    "i.i.i.t_in_Master_of_Business_Administration_MBA.html",
+                    "i.i.i.t_in_Master_of_Design_M.Des.html",
+                    "i.i.i.t_in_Master_of_Technology_M.Tech.html",
+                    "i.i.i.t_in_Mechanical_Engineering.html",
+                    "i.i.i.t_in_Mechanical_Systems_Design.html",
+                    "i.i.i.t_in_Smart_Manufacturing.html",
+                    "i.i.i.t_in_Technology-Integrated_Management.html"
+                ];
+                
+                programFiles.forEach(file => {
+                    const displayName = file.replace(/i\.i\.i\.t_in_|\.html/g, '').replace(/_/g, ' ');
+                    document.write(`<button class="button" onclick="location.href='${file}'">${displayName}</button>`);
+                });
+            
+                
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

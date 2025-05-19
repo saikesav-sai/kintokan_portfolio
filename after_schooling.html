@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After Schooling</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1555685812-e34ed3f8e4c5'); /* School-themed background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4e54c8;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column; /* Align buttons vertically */
+            gap: 15px;
+        }
+
+        .button {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #3b41a1, #6e74c8);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Kintokan I.T solutions</h1>
+        <p>Choose your preferred path to explore opportunities and learn more.</p>
+        <div class="buttons">
+            <button class="button" onclick="location.href='inter.html'">Inter</button>
+            <button class="button" onclick="location.href='diploma.html'">Diploma</button>
+            <button class="button" onclick="location.href='iti.html'">I.T.I</button>
+            <button class="button" onclick="location.href='iiit.html'">IIIT</button>
+        </div>
+    </div>
+</body>
+</html>

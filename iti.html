@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialized Paths</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1555685812-e34ed3f8e4c5');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #4e54c8;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            width: 100%;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #3b41a1, #6e74c8);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .scrollable {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1>Explore Specialized Career Paths</h1>
+        <p>Select a path to explore opportunities and learn more about it.</p>
+        <div class="scrollable">
+            <div class="buttons">
+                <script>
+                    const itiCourses = [
+                        "i.t.i._in_Electrician",
+                        "i.t.i._in_Fitter",
+                        "i.t.i._in_Turner",
+                        "i.t.i._in_Mechanic_Motor_Vehicle",
+                        "i.t.i._in_Mechanic_Diesel",
+                        "i.t.i._in_Welder_Gas_and_Electric",
+                        "i.t.i._in_Wireman",
+                        "i.t.i._in_Plumber",
+                        "i.t.i._in_Carpenter",
+                        "i.t.i._in_Machinist",
+                        "i.t.i._in_Tool_and_Die_Maker",
+                        "i.t.i._in_Refrigeration_and_Air_Conditioning_Mechanic",
+                        "i.t.i._in_Electronics_Mechanic",
+                        "i.t.i._in_Draughtsman_Mechanical",
+                        "i.t.i._in_Draughtsman_Civil",
+                        "i.t.i._in_Painter_General",
+                        "i.t.i._in_Surveyor",
+                        "i.t.i._in_Instrument_Mechanic",
+                        "i.t.i._in_Information_Technology_and_Electronics_System_Maintenance",
+                        "i.t.i._in_Stenographer_and_Secretarial_Assistant_English_and_Hindi",
+                        "i.t.i._in_Fashion_Design_and_Technology",
+                        "i.t.i._in_Computer_Operator_and_Programming_Assistant_COPA",
+                        "i.t.i._in_Food_and_Beverage_Services",
+                        "i.t.i._in_Health_Sanitary_Inspector",
+                        "i.t.i._in_Travel_and_Tour_Assistant",
+                        "i.t.i._in_Housekeeper",
+                        "i.t.i._in_Hospitality_Management",
+                        "i.t.i._in_Sewing_Technology",
+                        "i.t.i._in_Dressmaking",
+                        "i.t.i._in_Internet_of_Things_IoT_Technician",
+                        "i.t.i._in_Solar_Technician",
+                        "i.t.i._in_Advanced_Welding_Technologies",
+                        "i.t.i._in_Robotics_and_Automation"
+                    ];
+
+                    itiCourses.forEach(course => {
+                        document.write(`<button class="button" onclick="location.href='${course.toLowerCase()}.html'">${course.replace(/_/g, " ")}</button>`);
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
