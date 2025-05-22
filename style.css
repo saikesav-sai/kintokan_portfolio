@@ -228,10 +228,10 @@ ul li a:hover{
     outline: none;
 }
 
-::placeholder{
+/* ::placeholder{ */
     /* color: #fff; */
-    font-family: Arial;
-}
+    /* font-family: Arial; */
+/* } */
 
 .btnn{
     width: 240px;
