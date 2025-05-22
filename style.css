@@ -229,7 +229,7 @@ ul li a:hover{
 }
 
 ::placeholder{
-    color: #fff;
+    /* color: #fff; */
     font-family: Arial;
 }
 
