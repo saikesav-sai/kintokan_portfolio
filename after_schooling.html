@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>After Schooling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.2) 0%, transparent 30%),
+              radial-gradient(circle at 80% 20%, rgba(244, 67, 54, 0.2) 0%, transparent 40%),
+              radial-gradient(circle at 50% 90%, rgba(156, 39, 176, 0.2) 0%, transparent 30%);
+  animation: floatBG 30s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+   
+
+    .menu_side {
+      width: 100%;
+      padding: 10px 0;
+      z-index: 2;
+    }
+
+    #navbar_menu {
+      display: flex;
+      justify-content: center;
+    }
+
+    .first-ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    .first-ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .first-ul li a:hover,
+    .first-ul li a.active {
+      background-color: #1565c0;
+      color: #fff;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .main-title h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1a237e;
+    }
+
+    .main-title p {
+      font-size: 1.3rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      animation: fadeIn 2s ease-in;
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .option-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #42a5f5, #7e57c2);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .option-button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #5c6bc0, #ab47bc);
+    }
+
+    .option-button i {
+      font-size: 1.2rem;
+    }
+
+    #chat-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #chat-toggle-btn:hover {
+      background-color: #303f9f;
+    }
+
+    #chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      width: 300px;
+      height: 400px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #chat-header {
+      background-color: #3f51b5;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    #chat-input input {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    #chat-input button {
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 8px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .main-title h1 {
+        font-size: 1.8rem;
+      }
+
+      .main-title p {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .option-button {
+        width: 90%;
+        font-size: 1rem;
+        padding: 12px;
+        justify-content: center;
+      }
+
+      .first-ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .first-ul li a {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+      }
+
+      #chat-container {
+        width: 90%;
+        height: 65vh;
+        right: 5%;
+        bottom: 85px;
+      }
+
+      #chat-toggle-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        bottom: 15px;
+        right: 15px;
+      }
+
+      #chat-header {
+        font-size: 1rem;
+      }
+
+      #chat-input input,
+      #chat-input button {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu_side">
+    <div id="navbar_menu">
+      <ul class="first-ul">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="after_schooling.html">After Schooling</a></li>
+       
+        <li><a href="contact_us.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="main-title">
+      <h1>After Schooling</h1>
+      <p>Your Career Path Begins Here</p>
+    </div>
+    <div class="options">
+      <div class="option-button" onclick="location.href='inter.html'">
+        <i class="fas fa-user-graduate"></i> Inter
+      </div>
+      <div class="option-button" onclick="location.href='diploma.html'">
+        <i class="fas fa-tools"></i> Diploma
+      </div>
+      <div class="option-button" onclick="location.href='iiit.html'">
+        <i class="fas fa-laptop-code"></i> IIIT
+      </div>
+      <div class="option-button" onclick="location.href='iti.html'">
+        <i class="fas fa-industry"></i> ITI
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Chat Button -->
+  <button id="chat-toggle-btn" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Chat Container -->
+  <div id="chat-container">
+    <div id="chat-header">Career Guide Bot</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="userInput" placeholder="Type here..." />
+      <button onclick="handleUserInput()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "What subjects do you enjoy the most?",
+      "Do you prefer practical or theoretical learning?",
+      "Are you interested in technology or healthcare?",
+      "Do you like working with machines or people?",
+      "Do you want a job right after 12th or after graduation?",
+      "Are you comfortable with coding or electronics?",
+      "Do you enjoy drawing or designing?",
+      "Do you want to study in government or private college?",
+      "How important is salary in your career choice?",
+      "Would you like to work in a lab, office, or field?"
+    ];
+
+    const suggestions = {
+      tech: ["IIIT", "Diploma in CS", "B.Tech"],
+      practical: ["ITI", "Diploma", "Paramedical"],
+      creative: ["Design Courses", "Animation", "Architecture"],
+      healthcare: ["Nursing", "Pharmacy", "Medical Lab Tech"]
+    };
+
+    let currentQuestion = 0;
+    let answers = [];
+    let chatStarted = false;
+
+    function toggleChat() {
+      const chat = document.getElementById("chat-container");
+      const isOpen = chat.style.display === "flex";
+      chat.style.display = isOpen ? "none" : "flex";
+      if (!chatStarted) {
+        startChat();
+        chatStarted = true;
+      }
+    }
+
+    function startChat() {
+      setTimeout(() => addMessage(questions[currentQuestion], 'bot'), 500);
+    }
+
+    function addMessage(msg, sender) {
+      const chatBox = document.getElementById("chat-messages");
+      const msgDiv = document.createElement("div");
+      msgDiv.textContent = msg;
+      msgDiv.style.margin = "5px 0";
+      msgDiv.style.color = sender === "bot" ? "#3f51b5" : "#000";
+      msgDiv.style.wordWrap = "break-word";
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function handleUserInput() {
+      const input = document.getElementById("userInput");
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage(text, "user");
+      answers.push(text.toLowerCase());
+      input.value = "";
+
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        setTimeout(() => addMessage(questions[currentQuestion], "bot"), 1000);
+      } else {
+        setTimeout(() => provideSuggestion(), 1500);
+      }
+    }
+
+    function provideSuggestion() {
+      let text = answers.join(" ");
+      let result = [];
+
+      if (text.includes("computer") || text.includes("technology")) result.push(...suggestions.tech);
+      if (text.includes("machine") || text.includes("practical")) result.push(...suggestions.practical);
+      if (text.includes("design") || text.includes("drawing")) result.push(...suggestions.creative);
+      if (text.includes("nurse") || text.includes("lab") || text.includes("health")) result.push(...suggestions.healthcare);
+
+      result = [...new Set(result)];
+
+      addMessage("Based on your answers, these career paths might suit you:", "bot");
+      result.forEach(r => addMessage("- " + r, "bot"));
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("userInput").addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleUserInput();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

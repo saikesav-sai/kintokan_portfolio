@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IIIT Specializations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #ffffff);
+      color: #333;
+      padding: 40px 20px;
+      margin: 0;
+      animation: fadeInBody 1s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInText 1s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .main-title h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #2b6cb0;
+    }
+
+    .main-title p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .category {
+      margin-bottom: 50px;
+    }
+
+    .category h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #2b6cb0;
+      border-left: 5px solid #90cdf4;
+      padding-left: 12px;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInGrid 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInGrid {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .option-button {
+      background: #ffffffcc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px;
+      width: 220px;
+      height: 140px;
+      text-align: center;
+      color: #2d3748;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      animation: fadeInButton 0.8s ease-in;
+    }
+
+    @keyframes fadeInButton {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .option-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .option-button i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #4299e1;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option-button:hover i {
+      color: #3182ce;
+      transform: rotate(3deg) scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      .option-button {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-title">
+    <h1>IIIT Specializations</h1>
+    <p>Explore your specialized programs</p>
+  </div>
+
+  <div class="category">
+    <h2>Computer Science & AI</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_artificial_intelligence.html"><i class="fas fa-robot"></i>Artificial Intelligence</a>
+      <a class="option-button" href="i.i.i.t_in_data_science.html"><i class="fas fa-database"></i>Data Science</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_engineering.html"><i class="fas fa-laptop-code"></i>CS & Engineering</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_engineering_cse.html"><i class="fas fa-server"></i>Computer Science (CSE)</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_applied_mathematics_csam.html"><i class="fas fa-square-root-alt"></i>CS + Applied Math (CSAM)</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_biosciences_csb.html"><i class="fas fa-dna"></i>CS + Biosciences (CSB)</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_design_csd.html"><i class="fas fa-palette"></i>CS + Design (CSD)</a>
+      <a class="option-button" href="i.i.i.t_in_computer_science_and_social_sciences_csss.html"><i class="fas fa-users"></i>CS + Social Sciences (CSSS)</a>
+      <a class="option-button" href="i.i.i.t_in_b.tech_in_cse_+_m.tech_in_advanced_specializations.html"><i class="fas fa-code"></i>CSE + M.Tech</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Electronics & Communication</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_electronics_and_communication_engineering.html"><i class="fas fa-broadcast-tower"></i>ECE</a>
+      <a class="option-button" href="i.i.i.t_in_vlsi_design.html"><i class="fas fa-microchip"></i>VLSI Design</a>
+      <a class="option-button" href="i.i.i.t_in_b.tech_in_ece_+_m.tech_in_communication_systems_or_vlsi_design.html"><i class="fas fa-microchip"></i>ECE + VLSI/Comm Systems</a>
+      <a class="option-button" href="i.i.i.t_in_communication_systems_design.html"><i class="fas fa-satellite-dish"></i>Comm Systems Design</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Mechanical & Design</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_mechanical_engineering.html"><i class="fas fa-industry"></i>Mechanical Engineering</a>
+      <a class="option-button" href="i.i.i.t_in_mechanical_systems_design.html"><i class="fas fa-project-diagram"></i>Mech Systems Design</a>
+      <a class="option-button" href="i.i.i.t_in_b.tech_in_mechanical_engineering_+_m.tech_in_ai_and_robotics.html"><i class="fas fa-cogs"></i>Mech + AI & Robotics</a>
+      <a class="option-button" href="i.i.i.t_in_integrated_product_design.html"><i class="fas fa-pencil-ruler"></i>Product Design</a>
+      <a class="option-button" href="i.i.i.t_in_smart_manufacturing.html"><i class="fas fa-microchip"></i>Smart Manufacturing</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Mathematics & Science</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_mathematics.html"><i class="fas fa-square-root-variable"></i>Mathematics</a>
+      <a class="option-button" href="i.i.i.t_in_physics.html"><i class="fas fa-atom"></i>Physics</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Business & Humanities</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_master_of_business_administration_mba.html"><i class="fas fa-briefcase"></i>MBA</a>
+      <a class="option-button" href="i.i.i.t_in_technology-integrated_management.html"><i class="fas fa-tasks"></i>Tech-Integrated Mgmt</a>
+      <a class="option-button" href="i.i.i.t_in_humanities.html"><i class="fas fa-book-open"></i>Humanities</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Postgraduate & Research</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_master_of_design_m.des.html"><i class="fas fa-drafting-compass"></i>M.Des</a>
+      <a class="option-button" href="i.i.i.t_in_master_of_science_m.s..html"><i class="fas fa-flask"></i>M.S.</a>
+      <a class="option-button" href="i.i.i.t_in_master_of_technology_m.tech.html"><i class="fas fa-tools"></i>M.Tech</a>
+      <a class="option-button" href="i.i.i.t_in_postgraduate_programs_based_on_gate_ceed_scores.html"><i class="fas fa-user-check"></i>PG via GATE/CEED</a>
+      <a class="option-button" href="i.i.i.t_in_doctoral_programs_entrance_tests_and_interviews_conducted_by_respective_iiits.html"><i class="fas fa-user-graduate"></i>Doctoral Programs</a>
+      <a class="option-button" href="i.i.i.t_in_research_in_engineering_and_science_disciplines.html"><i class="fas fa-vial"></i>Research Programs</a>
+    </div>
+  </div>
+
+  <div class="category">
+    <h2>Undergraduate Admissions</h2>
+    <div class="options">
+      <a class="option-button" href="i.i.i.t_in_undergraduate_programs_through_jee_main_and_josaa_csab_counseling.html"><i class="fas fa-university"></i>UG via JEE Main + JoSAA</a>
+    </div>
+  </div>
+</body>
+</html>

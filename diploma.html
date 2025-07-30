@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diploma Programs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #ffffff);
+      color: #333;
+      padding: 40px 20px;
+      margin: 0;
+      animation: fadeInBody 1s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeInText 1s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .main-title h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #2b6cb0;
+    }
+
+    .main-title p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0;
+      animation: fadeInGrid 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInGrid {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .nav-buttons a {
+      background-color: #2b6cb0;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #3182ce;
+    }
+
+    .category {
+      margin-bottom: 40px;
+    }
+
+    .category h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #2b6cb0;
+      border-left: 5px solid #90cdf4;
+      padding-left: 12px;
+      animation: fadeInText 1s ease-in-out;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      animation: fadeInGrid 1.2s ease-in-out;
+    }
+
+    .option-button {
+      background: #ffffffcc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px;
+      width: 220px;
+      height: 140px;
+      text-align: center;
+      color: #2d3748;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      animation: fadeInButton 0.8s ease-in;
+    }
+
+    @keyframes fadeInButton {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .option-button:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .option-button i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #4299e1;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option-button:hover i {
+      color: #3182ce;
+      transform: rotate(3deg) scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      .option-button {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-title">
+    <h1>Diploma Programs</h1>
+    <p>Select your area of interest</p>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="#engineering">Engineering</a>
+    <a href="#science">Science</a>
+    <a href="#healthcare">Healthcare</a>
+    <a href="#business">Business & Law</a>
+    <a href="#aviation">Aviation</a>
+    <a href="#creative">Creative</a>
+    <a href="#education">Education</a>
+    <a href="#vocational">Vocational</a>
+  </div>
+
+ <h2>Engineering & Technology</h2>
+<div class="options">
+  <div class="option-button" onclick="location.href='diploma_in_mechanical_engineering.html'"><i class="fas fa-cogs"></i>Mechanical Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_civil_engineering.html'"><i class="fas fa-building"></i>Civil Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_electrical_engineering.html'"><i class="fas fa-bolt"></i>Electrical Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_electronics_and_communications.html'"><i class="fas fa-microchip"></i>Electronics & Comm</div>
+  <div class="option-button" onclick="location.href='diploma_in_automobile_engineering.html'"><i class="fas fa-car"></i>Automobile Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_chemical_engineering.html'"><i class="fas fa-flask"></i>Chemical Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_construction_engineering.html'"><i class="fas fa-tools"></i>Construction Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_marine_engineering.html'"><i class="fas fa-anchor"></i>Marine Engg</div>
+  <div class="option-button" onclick="location.href='diploma_in_computer_science_engineering.html'"><i class="fas fa-desktop"></i>Computer Science</div>
+  <div class="option-button" onclick="location.href='diploma_in_information_technology.html'"><i class="fas fa-network-wired"></i>IT</div>
+  <div class="option-button" onclick="location.href='diploma_in_weilding.html'"><i class="fas fa-wrench"></i>Welding</div>
+  <div class="option-button" onclick="location.href='diploma_in_plumbing.html'"><i class="fas fa-faucet"></i>Plumbing</div>
+  <div class="option-button" onclick="location.href='diploma_in_carpentry.html'"><i class="fas fa-hammer"></i>Carpentry</div>
+</div>
+
+<h2>Science & Environment</h2>
+<div class="options">
+  <div class="option-button" onclick="location.href='diploma_in_biotechnology.html'"><i class="fas fa-dna"></i>Biotechnology</div>
+  <div class="option-button" onclick="location.href='diploma_in_environmental_science.html'"><i class="fas fa-leaf"></i>Environmental Science</div>
+  <div class="option-button" onclick="location.href='diploma_in_food_processing.html'"><i class="fas fa-utensils"></i>Food Processing</div>
+  <div class="option-button" onclick="location.href='diploma_in_dairy_technology.html'"><i class="fas fa-ice-cream"></i>Dairy Technology</div>
+  <div class="option-button" onclick="location.href='diploma_in_health_inspector.html'"><i class="fas fa-user-shield"></i>Health Inspector</div>
+  <div class="option-button" onclick="location.href='diploma_in_agriculture.html'"><i class="fas fa-seedling"></i>Agriculture</div>
+  <div class="option-button" onclick="location.href='diploma_in_horticulture.html'"><i class="fas fa-tree"></i>Horticulture</div>
+</div>
+
+<div class="category" id="healthcare">
+  <h2>Healthcare & Paramedical</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_nursing.html'"><i class="fas fa-user-nurse"></i>Nursing</div>
+    <div class="option-button" onclick="location.href='diploma_in_pharmacy.html'"><i class="fas fa-prescription-bottle"></i>Pharmacy</div>
+    <div class="option-button" onclick="location.href='diploma_in_medical_laboratory_technology.html'"><i class="fas fa-vial"></i>Lab Technology</div>
+    <div class="option-button" onclick="location.href='diploma_in_dental_hygiene.html'"><i class="fas fa-tooth"></i>Dental Hygiene</div>
+    <div class="option-button" onclick="location.href='diploma_in_physiotherapy.html'"><i class="fas fa-dumbbell"></i>Physiotherapy</div>
+    <div class="option-button" onclick="location.href='diploma_in_ophthalmic_technology.html'"><i class="fas fa-eye"></i>Ophthalmic Tech</div>
+    <div class="option-button" onclick="location.href='diploma_in_radiology.html'"><i class="fas fa-x-ray"></i>Radiology</div>
+  </div>
+</div>
+
+<div class="category" id="business">
+  <h2>Business & Law</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_business_administration.html'"><i class="fas fa-briefcase"></i>Business Admin</div>
+    <div class="option-button" onclick="location.href='diploma_in_financial_management.html'"><i class="fas fa-coins"></i>Financial Mgmt</div>
+    <div class="option-button" onclick="location.href='diploma_in_marketing_management.html'"><i class="fas fa-bullhorn"></i>Marketing</div>
+    <div class="option-button" onclick="location.href='diploma_in_supply_chain_management.html'"><i class="fas fa-truck"></i>Supply Chain</div>
+    <div class="option-button" onclick="location.href='diploma_in_resource_management.html'"><i class="fas fa-users-cog"></i>Resource Mgmt</div>
+    <div class="option-button" onclick="location.href='diploma_in_retail_management.html'"><i class="fas fa-store"></i>Retail Mgmt</div>
+    <div class="option-button" onclick="location.href='diploma_in_law.html'"><i class="fas fa-balance-scale"></i>Law</div>
+    <div class="option-button" onclick="location.href='diploma_in_international_law.html'"><i class="fas fa-globe"></i>International Law</div>
+    <div class="option-button" onclick="location.href='diploma_in_cyber_law.html'"><i class="fas fa-shield-alt"></i>Cyber Law</div>
+    <div class="option-button" onclick="location.href='diploma_in_paralegal_studies.html'"><i class="fas fa-gavel"></i>Paralegal Studies</div>
+  </div>
+</div>
+
+<div class="category" id="aviation">
+  <h2>Aviation & Hospitality</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_air_hostess_training.html'"><i class="fas fa-plane-departure"></i>Air Hostess</div>
+    <div class="option-button" onclick="location.href='diploma_in_air_hostess_cabin_crew_training.html'"><i class="fas fa-user-tie"></i>Cabin Crew</div>
+    <div class="option-button" onclick="location.href='diploma_in_airport_ground_training.html'"><i class="fas fa-suitcase"></i>Ground Training</div>
+    <div class="option-button" onclick="location.href='diploma_in_aviation_management.html'"><i class="fas fa-warehouse"></i>Aviation Mgmt</div>
+    <div class="option-button" onclick="location.href='diploma_in_hotel_management.html'"><i class="fas fa-hotel"></i>Hotel Mgmt</div>
+  </div>
+</div>
+
+<div class="category" id="creative">
+  <h2>Creative & Design</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_graphic_designing.html'"><i class="fas fa-pencil-ruler"></i>Graphic Design</div>
+    <div class="option-button" onclick="location.href='diploma_in_fine_arts.html'"><i class="fas fa-paint-brush"></i>Fine Arts</div>
+    <div class="option-button" onclick="location.href='diploma_in_interior_designing.html'"><i class="fas fa-couch"></i>Interior Design</div>
+    <div class="option-button" onclick="location.href='diploma_in_photography.html'"><i class="fas fa-camera-retro"></i>Photography</div>
+    <div class="option-button" onclick="location.href='diploma_in_fashion_designing.html'"><i class="fas fa-tshirt"></i>Fashion Design</div>
+    <div class="option-button" onclick="location.href='diploma_in_fashion_technology.html'"><i class="fas fa-industry"></i>Fashion Tech</div>
+    <div class="option-button" onclick="location.href='diploma_in_textile_designing.html'"><i class="fas fa-ruler-combined"></i>Textile Design</div>
+    <div class="option-button" onclick="location.href='diploma_in_web_designing.html'"><i class="fas fa-code"></i>Web Designing</div>
+    <div class="option-button" onclick="location.href='diploma_in_jewelry_designing.html'"><i class="fas fa-gem"></i>Jewelry Design</div>
+    <div class="option-button" onclick="location.href='diploma_in_animation.html'"><i class="fas fa-film"></i>Animation</div>
+    <div class="option-button" onclick="location.href='diploma_in_architecture_assistantship.html'"><i class="fas fa-drafting-compass"></i>Architecture</div>
+  </div>
+</div>
+
+<div class="category" id="education">
+  <h2>Education & Languages</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_elementary_education.html'"><i class="fas fa-school"></i>Elementary Ed</div>
+    <div class="option-button" onclick="location.href='diploma_in_special_education.html'"><i class="fas fa-user-graduate"></i>Special Ed</div>
+    <div class="option-button" onclick="location.href='diploma_in_early_childhood_care_and_education.html'"><i class="fas fa-child"></i>Early Childhood</div>
+    <div class="option-button" onclick="location.href='diploma_in_foreign_languages.html'"><i class="fas fa-language"></i>Languages</div>
+    <div class="option-button" onclick="location.href='diploma_in_translation_and_interpretation.html'"><i class="fas fa-comments"></i>Translation</div>
+    <div class="option-button" onclick="location.href='diploma_in_english_language_and_literature.html'"><i class="fas fa-book-reader"></i>English Lit</div>
+    <div class="option-button" onclick="location.href='diploma_in_international_business.html'"><i class="fas fa-briefcase"></i>Intl. Business</div>
+  </div>
+</div>
+
+<div class="category" id="vocational">
+  <h2>Vocational & Event</h2>
+  <div class="options">
+    <div class="option-button" onclick="location.href='diploma_in_event_management.html'"><i class="fas fa-calendar-alt"></i>Event Mgmt</div>
+  </div>
+</div>
+
+ 
+</body>
+</html>

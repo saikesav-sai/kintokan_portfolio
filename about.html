@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Kintokan IT Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #eaf1ff, #f7faff);
+      color: #333;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    nav {
+      width: 100%;
+      padding: 20px 40px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    nav h2 {
+      color: #1F51FF;
+      font-weight: 700;
+      font-size: 1.4rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #1F51FF;
+    }
+    .container {
+      padding: 140px 20px 60px;
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .container h2 {
+      font-size: 2.2rem;
+      color: #1F51FF;
+      margin-bottom: 15px;
+    }
+    .container p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    .team-section {
+      margin-top: 60px;
+      background: white;
+      padding: 60px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+    .team-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: #1F51FF;
+      text-align: center;
+    }
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    a.member-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .member {
+      width: 240px;
+      background: #f4f8ff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(31, 81, 255, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .member:hover {
+      transform: scale(1.05);
+    }
+    .member img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 15px;
+    }
+    .member h4 {
+      font-weight: 600;
+      color: #1F51FF;
+      margin-bottom: 8px;
+    }
+    .member p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .social-links a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #1F51FF;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #637eff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) {
+      .team-members {
+        flex-direction: column;
+        align-items: center;
+      }
+      .member {
+        width: 90%;
+        max-width: 320px;
+      }
+    }
+    #chatbot-icon {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #1F51FF;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
+      animation: idleGlow 2s infinite alternate;
+    }
+    @keyframes idleGlow {
+      0% { box-shadow: 0 0 10px rgba(31,81,255,0.4); }
+      100% { box-shadow: 0 0 20px rgba(31,81,255,0.9); }
+    }
+    #chat-container {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 1001;
+    }
+    #chat-header {
+      background-color: #1F51FF;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    #chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    #chat-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+    }
+    #chat-input button {
+      background-color: #1F51FF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h2>Kintokan</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" aria-current="page">About us</a></li>
+    <li><a href="after_schooling.html">After Schooling</a></li>
+    <li><a href="contact_us.html">Contact us</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h2>About Kintokan IT Solutions</h2>
+  <p>
+    At Kintokan I.T Solutions Pvt. Ltd., our mission is to empower every student to discover their unique talents and craft a personalized career path that fits their individual strengths and passions.
+  </p>
+  <p>
+    With a dedicated team of mentors and industry experts, we offer deep insights and compassionate support to help students grow in confidence and clarity. Our approach nurtures creativity, curiosity, and purpose, unlocking each student’s full potential for a fulfilling future.
+  </p>
+</div>
+
+<div class="team-section">
+  <h3>Meet Our Team</h3>
+  <div class="team-members">
+
+    <a href=" https://ceo.kintokan.live/" class="member-link">
+      <div class="member">
+        <img src="ceo.jpeg" alt="Sriram Nanduri" />
+        <h4>Sriram Nanduri</h4>
+        <p>Founder & CEO</p>
+        <p>Sriram, CEO of Kintokan I.T Solutions, expert in coding, hardware, networking, and career mentoring.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sriram-nanduri-8651b8345/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/NanduriSriram_"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/sriram_nanduri_/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@EDU_Guide_10"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </a>
+
+    <a href="designer.html" class="member-link">
+      <div class="member">
+        <img src="designer.jpg" alt="Mouli Rajmendry" />
+        <h4>Mouli Rajmendry</h4>
+        <p>Designer</p>
+        <p>Video editor & graphic designer passionate about storytelling and visual content creation.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.youtube.com/@EDU_Guide_10"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://saikesav.me/" class="member-link">
+      <div class="member">
+        <img src="programmer.jpg" alt="Sai Kesav" />
+        <h4>Sai Kesav</h4>
+        <p>Programmer</p>
+        <p>Full-stack developer with experience in AI, cloud platforms, and real-world tech problem solving.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/sai-kesav-gainedi/"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/saikesav_sai/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@EDU_Guide_10"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Kintokan IT Solutions Pvt. Ltd. All rights reserved.
+</footer>
+
+<!-- Chatbot Icon -->
+<div id="chatbot-icon" onclick="toggleChat()">🤖</div>
+
+<!-- Chatbot Window -->
+<div id="chat-container">
+  <div id="chat-header">Alpha A.I</div>
+  <div id="chat-messages">
+    <div><strong>Alpha:</strong> Hi! I'm Alpha, your AI guide. How can I help you today?</div>
+  </div>
+  <div id="chat-input">
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+
+  function toggleChat() {
+    const chat = document.getElementById("chat-container");
+    chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+    chat.style.flexDirection = "column";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const msg = input.value.trim();
+    if (!msg) return;
+    const chat = document.getElementById("chat-messages");
+    chat.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      chat.innerHTML += `<div><strong>Alpha:</strong> <button onclick="location.href='contact_us.html'">Contact Us</button> <button onclick="location.href='after_schooling.html'">Explore Courses</button></div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }, 700);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Industrial Training Institute Courses</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #ffffff);
+      color: #333;
+      padding: 40px 20px;
+      margin: 0;
+      animation: fadeInBody 1s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: fadeInText 1s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .main-title h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #2b6cb0;
+    }
+
+    .main-title p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .category {
+      margin-bottom: 40px;
+    }
+
+    .category h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #2b6cb0;
+      border-left: 5px solid #90cdf4;
+      padding-left: 12px;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      animation: fadeInGrid 1.2s ease-in-out;
+    }
+
+    @keyframes fadeInGrid {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .option-button {
+      background: #ffffffcc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 20px;
+      width: 220px;
+      height: 140px;
+      text-align: center;
+      color: #2d3748;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      animation: fadeInButton 0.8s ease-in;
+    }
+
+    @keyframes fadeInButton {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .option-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .option-button i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #4299e1;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .option-button:hover i {
+      color: #3182ce;
+      transform: rotate(3deg) scale(1.15);
+    }
+
+    @media (max-width: 768px) {
+      .option-button {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-title">
+    <h1>Industrial Training Institute</h1>
+    <p>Select Your Specialized ITI Course</p>
+  </div>
+
+  <!-- Engineering & Technical -->
+  <div class="category">
+    <h2>Engineering & Technical Trades</h2>
+    <div class="options">
+      <a class="option-button" href="i.t.i._in_electrician.html"><i class="fas fa-bolt"></i>Electrician</a>
+      <a class="option-button" href="i.t.i._in_electronics_mechanic.html"><i class="fas fa-microchip"></i>Electronics Mechanic</a>
+      <a class="option-button" href="i.t.i._in_fitter.html"><i class="fas fa-wrench"></i>Fitter</a>
+      <a class="option-button" href="i.t.i._in_draughtsman_civil.html"><i class="fas fa-drafting-compass"></i>Draughtsman Civil</a>
+      <a class="option-button" href="i.t.i._in_draughtsman_mechanical.html"><i class="fas fa-cogs"></i>Draughtsman Mech</a>
+      <a class="option-button" href="i.t.i._in_machinist.html"><i class="fas fa-industry"></i>Machinist</a>
+      <a class="option-button" href="i.t.i._in_mechanic_motor_vehicle.html"><i class="fas fa-car"></i>Motor Vehicle</a>
+      <a class="option-button" href="i.t.i._in_mechanic_machine_tools.html"><i class="fas fa-tools"></i>Machine Tools</a>
+      <a class="option-button" href="i.t.i._in_turner.html"><i class="fas fa-gear"></i>Turner</a>
+      <a class="option-button" href="i.t.i._in_wireman.html"><i class="fas fa-plug"></i>Wireman</a>
+      <a class="option-button" href="i.t.i._in_instrument_mechanic.html"><i class="fas fa-tachometer-alt"></i>Instrument Mechanic</a>
+      <a class="option-button" href="i.t.i._in_plumber.html"><i class="fas fa-faucet"></i>Plumber</a>
+      <a class="option-button" href="i.t.i._in_foundryman.html"><i class="fas fa-fire"></i>Foundryman</a>
+      <a class="option-button" href="i.t.i._in_advanced_welding_technologies.html"><i class="fas fa-tools"></i>Advanced Welding</a>
+      <a class="option-button" href="i.t.i._in_surveyor.html"><i class="fas fa-ruler-combined"></i>Surveyor</a>
+    </div>
+  </div>
+
+  <!-- IT & Computer-Based -->
+  <div class="category">
+    <h2>IT & Computer-Based Courses</h2>
+    <div class="options">
+      <a class="option-button" href="i.t.i._in_computer_operator_and_programming_assistant_copa.html"><i class="fas fa-laptop-code"></i>CO&PA</a>
+      <a class="option-button" href="i.t.i._in_internet_of_things_iot_technician.html"><i class="fas fa-wifi"></i>IoT Technician</a>
+    </div>
+  </div>
+
+  <!-- Creative & Design Fields -->
+  <div class="category">
+    <h2>Creative & Design Fields</h2>
+    <div class="options">
+      <a class="option-button" href="i.t.i._in_architecture_assistant.html"><i class="fas fa-building"></i>Architecture Assistant</a>
+      <a class="option-button" href="i.t.i._in_fashion_design_and_technology.html"><i class="fas fa-tshirt"></i>Fashion Design</a>
+      <a class="option-button" href="i.t.i._in_interior_design_and_decorating.html"><i class="fas fa-paint-roller"></i>Interior Design</a>
+      <a class="option-button" href="i.t.i._in_photographer.html"><i class="fas fa-camera-retro"></i>Photographer</a>
+      <a class="option-button" href="i.t.i._in_dressmaking.html"><i class="fas fa-scissors"></i>Dressmaking</a>
+      <a class="option-button" href="i.t.i._in_sewing_technology.html"><i class="fas fa-needle"></i>Sewing Tech</a>
+    </div>
+  </div>
+
+  <!-- Other Trades & Services -->
+  <div class="category">
+    <h2>Other Trades & Services</h2>
+    <div class="options">
+      <a class="option-button" href="i.t.i._in_diesel_mechanic.html"><i class="fas fa-truck"></i>Diesel Mechanic</a>
+      <a class="option-button" href="i.t.i._in_robotics_and_automation.html"><i class="fas fa-robot"></i>Robotics</a>
+      <a class="option-button" href="i.t.i._in_mechanic_consumer_electronics.html"><i class="fas fa-tv"></i>Consumer Electronics</a>
+      <a class="option-button" href="i.t.i._in_mechanic_refrigeration_and_air_conditioning.html"><i class="fas fa-snowflake"></i>Refrigeration & AC</a>
+      <a class="option-button" href="i.t.i._in_carpenter.html"><i class="fas fa-hammer"></i>Carpenter</a>
+      <a class="option-button" href="i.t.i._in_front_office_assistant.html"><i class="fas fa-user-tie"></i>Front Office</a>
+      <a class="option-button" href="i.t.i._in_health_sanitary_inspector.html"><i class="fas fa-toilet-paper"></i>Sanitary Inspector</a>
+      <a class="option-button" href="i.t.i._in_baker_and_confectioner.html"><i class="fas fa-bread-slice"></i>Baker & Confectioner</a>
+      <a class="option-button" href="i.t.i._in_beauty_culture.html"><i class="fas fa-spa"></i>Beauty Culture</a>
+    </div>
+  </div>
+</body>
+</html>
