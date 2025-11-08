@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.2) 0%, transparent 30%),
+                  radial-gradient(circle at 80% 20%, rgba(244, 67, 54, 0.2) 0%, transparent 40%),
+                  radial-gradient(circle at 50% 90%, rgba(156, 39, 176, 0.2) 0%, transparent 30%);
+      animation: floatBG 30s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+
+    .menu_side {
+      width: 100%;
+      padding: 10px 0;
+      z-index: 2;
+    }
+
+    #navbar_menu {
+      display: flex;
+      justify-content: center;
+    }
+
+    .first-ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    .first-ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .first-ul li a:hover,
+    .first-ul li a.active {
+      background-color: #1565c0;
+      color: #fff;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 30px;
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .main-title h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1a237e;
+    }
+
+    .main-title p {
+      font-size: 1.3rem;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      animation: fadeIn 2s ease-in;
+      width: 100%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .option-button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #42a5f5, #7e57c2);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .option-button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #5c6bc0, #ab47bc);
+    }
+
+    .option-button i {
+      font-size: 1.2rem;
+    }
+
+    .course-details {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 30px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .course-details.active {
+      display: block;
+    }
+
+    .back-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #e91e63, #f44336);
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    .course-list h2 {
+      font-size: 2rem;
+      width:50%;
+      color: #1a237e;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .course-list h2 i {
+      font-size: 2rem;
+      color: #1565c0;
+    }
+
+    .course-link {
+        
+      margin-left: 10%;  
+      padding: 15px 25px;
+      width: 50%;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: 2px solid #42a5f5;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #42a5f5, #7e57c2);
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .course-link:hover {
+      transform: translateX(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #5c6bc0, #ab47bc);
+    }
+
+    .course-link i {
+      font-size: 1.2rem;
+    }
+
+    /* PDF Viewer Modal */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .pdf-modal.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pdf-modal-header {
+      background-color: #1565c0;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .pdf-modal-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pdf-modal-close {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .pdf-modal-close:hover {
+      background-color: #d32f2f;
+      transform: scale(1.05);
+    }
+
+    .pdf-viewer-container {
+      flex: 1;
+      width: 100%;
+      height: calc(100% - 70px);
+      background-color: #525252;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pdf-viewer-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .pdf-loading {
+      color: white;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .pdf-loading i {
+      font-size: 3rem;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #chat-toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #chat-toggle-btn:hover {
+      background-color: #303f9f;
+    }
+
+    #chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      width: 300px;
+      height: 400px;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #chat-header {
+      background-color: #3f51b5;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    #chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    #chat-input input {
+      flex: 1;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    #chat-input button {
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 8px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .main-title h1 {
+        font-size: 1.8rem;
+      }
+
+      .main-title p {
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .option-button {
+        width: 90%;
+        font-size: 1rem;
+        padding: 12px;
+        justify-content: center;
+      }
+
+      .course-list {
+        padding: 20px;
+      }
+
+      .course-list h2 {
+        font-size: 1.5rem;
+      }
+
+      .course-link {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+
+      .back-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+
+      .first-ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .first-ul li a {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+      }
+
+      #chat-container {
+        width: 90%;
+        height: 65vh;
+        right: 5%;
+        bottom: 85px;
+      }
+
+      #chat-toggle-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu_side">
+    <div id="navbar_menu">
+      <ul class="first-ul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="after_schooling.html">After Schooling</a></li>
+        <li><a class="active" href="courses.html">Courses</a></li>
+        <li><a href="contact_us.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="main-title">
+      <h1>Our Courses</h1>
+      <p>Explore Our Wide Range of Learning Programs</p>
+    </div>
+    
+    <!-- Main Options -->
+    <div class="options" id="main-options">
+      <div class="option-button" onclick="showCourses('programming')">
+        <i class="fas fa-code"></i> Programming
+      </div>
+      <div class="option-button" onclick="showCourses('os')">
+        <i class="fas fa-desktop"></i> Operating Systems
+      </div>
+      <div class="option-button" onclick="showCourses('designing')">
+        <i class="fas fa-palette"></i> Designing
+      </div>
+      <div class="option-button" onclick="showCourses('skill')">
+        <i class="fas fa-chart-line"></i> Skill Development
+      </div>
+    </div>
+
+    <!-- Programming Courses -->
+    <div class="course-details" id="programming-courses">
+      <button class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <div class="course-list">
+        <h2><i class="fas fa-code"></i> Programming Courses</h2>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/c_programming.pdf', 'C Programming')" class="course-link">
+          <span>C Programming</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/cpp_programming.pdf', 'C++ Programming')" class="course-link">
+          <span>C++ Programming</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/java_programming.pdf', 'Java Programming')" class="course-link">
+          <span>Java Programming</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/python_programming.pdf', 'Python Programming')" class="course-link">
+          <span>Python Programming</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/html_course.pdf', 'HTML')" class="course-link">
+          <span>HTML</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/css_course.pdf', 'CSS')" class="course-link">
+          <span>CSS</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/javascript_course.pdf', 'JavaScript')" class="course-link">
+          <span>JavaScript</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Operating Systems Courses -->
+    <div class="course-details" id="os-courses">
+      <button class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <div class="course-list">
+        <h2><i class="fas fa-desktop"></i> Operating Systems Courses</h2>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/windows_course.pdf', 'Windows')" class="course-link">
+          <span>Windows</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/ms_office_course.pdf', 'MS Office')" class="course-link">
+          <span>MS Office</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Designing Courses -->
+    <div class="course-details" id="designing-courses">
+      <button class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <div class="course-list">
+        <h2><i class="fas fa-palette"></i> Designing Courses</h2>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/photoshop_course.pdf', 'Photoshop')" class="course-link">
+          <span>Photoshop</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Skill Development Courses -->
+    <div class="course-details" id="skill-courses">
+      <button class="back-button" onclick="goBack()">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <div class="course-list">
+        <h2><i class="fas fa-chart-line"></i> Skill Development Courses</h2>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/communication_skills.pdf', 'Communication Skills')" class="course-link">
+          <span>Communication Skills</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/leadership.pdf', 'Leadership')" class="course-link">
+          <span>Leadership</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/problem_solving.pdf', 'Problem Solving')" class="course-link">
+          <span>Problem Solving</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/team_building.pdf', 'Team Building')" class="course-link">
+          <span>Team Building</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="openPDF('pdfs/time_management.pdf', 'Time Management')" class="course-link">
+          <span>Time Management</span>
+          <i class="fas fa-file-pdf"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF Viewer Modal -->
+  <div class="pdf-modal" id="pdf-modal">
+    <div class="pdf-modal-header">
+      <div class="pdf-modal-title">
+        <i class="fas fa-file-pdf"></i>
+        <span id="pdf-title">Course Material</span>
+      </div>
+      <button class="pdf-modal-close" onclick="closePDF()">
+        <i class="fas fa-times"></i> Close
+      </button>
+    </div>
+    <div class="pdf-viewer-container" id="pdf-viewer-container">
+      <div class="pdf-loading">
+        <i class="fas fa-spinner"></i>
+        <span>Loading PDF...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Chat Button -->
+  <button id="chat-toggle-btn" onclick="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Chat Container -->
+  <div id="chat-container">
+    <div id="chat-header">Course Guide Bot</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="userInput" placeholder="Ask about courses..." />
+      <button onclick="handleUserInput()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    let chatStarted = false;
+
+    function openPDF(pdfPath, title) {
+      const modal = document.getElementById('pdf-modal');
+      const titleElement = document.getElementById('pdf-title');
+      const viewerContainer = document.getElementById('pdf-viewer-container');
+      
+      // Set title
+      titleElement.textContent = title;
+      
+      // Show modal
+      modal.classList.add('active');
+      
+      // Show loading
+      viewerContainer.innerHTML = `
+        <div class="pdf-loading">
+          <i class="fas fa-spinner"></i>
+          <span>Loading PDF...</span>
+        </div>
+      `;
+      
+      // Load PDF in iframe
+      setTimeout(() => {
+        viewerContainer.innerHTML = `<iframe src="${pdfPath}" type="application/pdf"></iframe>`;
+      }, 300);
+    }
+
+    function closePDF() {
+      const modal = document.getElementById('pdf-modal');
+      const viewerContainer = document.getElementById('pdf-viewer-container');
+      
+      modal.classList.remove('active');
+      
+      // Clear iframe after animation
+      setTimeout(() => {
+        viewerContainer.innerHTML = `
+          <div class="pdf-loading">
+            <i class="fas fa-spinner"></i>
+            <span>Loading PDF...</span>
+          </div>
+        `;
+      }, 300);
+    }
+
+    function showCourses(category) {
+      // Hide main options
+      document.getElementById('main-options').style.display = 'none';
+      
+      // Hide all course details
+      const allCourses = document.querySelectorAll('.course-details');
+      allCourses.forEach(course => course.classList.remove('active'));
+      
+      // Show selected category
+      document.getElementById(category + '-courses').classList.add('active');
+    }
+
+    function goBack() {
+      // Show main options
+      document.getElementById('main-options').style.display = 'flex';
+      
+      // Hide all course details
+      const allCourses = document.querySelectorAll('.course-details');
+      allCourses.forEach(course => course.classList.remove('active'));
+    }
+
+    function toggleChat() {
+      const chat = document.getElementById("chat-container");
+      const isOpen = chat.style.display === "flex";
+      chat.style.display = isOpen ? "none" : "flex";
+      if (!chatStarted) {
+        startChat();
+        chatStarted = true;
+      }
+    }
+
+    function startChat() {
+      setTimeout(() => addMessage("Hello! I'm here to help you choose the right course. What are you interested in learning?", 'bot'), 500);
+    }
+
+    function addMessage(msg, sender) {
+      const chatBox = document.getElementById("chat-messages");
+      const msgDiv = document.createElement("div");
+      msgDiv.textContent = msg;
+      msgDiv.style.margin = "5px 0";
+      msgDiv.style.color = sender === "bot" ? "#3f51b5" : "#000";
+      msgDiv.style.fontWeight = sender === "bot" ? "500" : "normal";
+      msgDiv.style.wordWrap = "break-word";
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function handleUserInput() {
+      const input = document.getElementById("userInput");
+      const text = input.value.trim().toLowerCase();
+      if (!text) return;
+
+      addMessage(input.value.trim(), "user");
+      input.value = "";
+
+      setTimeout(() => {
+        let response = "That's interesting! ";
+        
+        if (text.includes("programming") || text.includes("code") || text.includes("java") || text.includes("python") || text.includes("c++")) {
+          response += "We offer comprehensive programming courses including C, C++, Java, Python, HTML, CSS, and JavaScript. Which language interests you most?";
+        } else if (text.includes("design") || text.includes("photoshop") || text.includes("graphic")) {
+          response += "Our designing course covers Photoshop for creating stunning graphics and visual content.";
+        } else if (text.includes("windows") || text.includes("office") || text.includes("os")) {
+          response += "We offer courses in Windows operating system and MS Office applications.";
+        } else if (text.includes("skill") || text.includes("development") || text.includes("soft")) {
+          response += "Our skill development programs focus on communication, leadership, problem-solving, team building, and time management.";
+        } else {
+          response += "We have courses in Programming, OS, Designing, and Skill Development. Which category interests you?";
+        }
+        
+        addMessage(response, "bot");
+      }, 1000);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("userInput").addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          handleUserInput();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
